@@ -1,0 +1,361 @@
+body{
+
+    direction: ltr
+}
+* {
+	font-family: sans-serif;
+}
+.en-ar{
+    margin: 0;
+    padding: 0;
+    width: 0;
+    display: inline-block;
+    float: right;
+}
+
+.navigation-links {
+
+     float: left; 
+
+}
+
+.navigation-links li{
+
+     float: left; 
+
+}
+
+.navbar-header{
+
+	float: left;
+
+}
+
+.services-box .list-unstyled li {
+
+    text-align: left;
+
+}
+
+.testimonial{
+
+	text-align: left;
+
+}
+
+
+
+.testimonial-box img{
+
+	float: left;
+
+}
+
+.image-artical{
+
+	float: left;
+
+}
+.testimonial {
+    display: inline-block !important;
+    width: calc(100% - 128px);
+    padding-left: 30px!important;
+    text-align: left!important;
+}
+testimonial  p{
+    text-align: left!important;
+
+}
+.prgraph-artical{
+
+	text-align: left;
+
+}
+
+.prgraph-artical .btn{
+
+	float: right;
+
+}
+
+.artical-main .btn {
+
+    float: right;
+
+}
+.aboutEdited p {
+
+    text-align: left;
+
+}
+.color-overlay .sub-heading {
+
+    color: #fff;
+
+    font-weight: 900;
+
+    text-align: left;
+
+}
+
+.colored-text span {
+
+    color: #dd4a48;
+
+    text-align: left;
+
+}
+
+.package-features li {
+
+    text-align: left;
+
+}
+
+.package .icon {
+
+    float: right;
+
+}
+
+/**** produact ****/
+
+.right-produact {
+
+    float: left;
+
+}
+
+.produact .name {
+
+    text-align: left;
+
+}
+
+.box .text-right {
+
+    text-align: left;
+
+}
+
+.right-produact h2 {
+
+    text-align: left;
+
+}
+
+.box p{
+
+	text-align: left;
+
+}
+
+.ul-prepoties {
+
+    text-align: left;
+
+}
+
+/**** produacts ****/
+
+
+
+.material-card.mc-active .mc-description {
+
+    text-align: left;
+
+}
+
+/**** artical ****/
+
+
+
+.sec-artical .col-sm-3 {
+
+    float: left;
+
+}
+
+.sec-artical .social h3 {
+
+    float: left;
+
+    padding-left: 20px;
+
+}
+
+.social a{
+
+	float: right;
+
+}
+
+.sec-artical .text-right {
+
+    text-align: left;
+
+}
+
+.sec-artical .btn {
+
+    float: right;
+
+}
+
+.artical-seconed .col-sm-6 {
+
+    float: left;
+
+}
+
+
+
+/**** articals ****/
+
+
+
+.contain .col-sm-8 {
+
+    width: 66.66666667%;
+
+    float: left;
+
+}
+
+.artical-p {
+
+    text-align: left;
+
+}
+
+.comments .font {
+
+    float: right;
+
+}
+
+.all-comment .col-sm-1 {
+
+    width: 8.33333333%;
+
+    float: left;
+
+}
+
+.head-one-left {
+
+    text-align: left;
+
+}
+
+.artical-left .col-sm-4 {
+
+    float: left;
+
+}
+
+.left-artical .btn {
+
+    float: left;
+
+}
+
+.left-artical p {
+
+    text-align: left;
+
+}
+
+.left-artical h3 {
+
+    text-align: left;
+
+}
+
+.left-artical .btn {
+
+    float: right;
+
+}
+.navigation .btn-container {
+    display: inline-block;
+    margin-left: 20px;
+}
+.mc-content .img-container .img-responsive{
+	height:100%;
+	width : 100%
+}
+.services-box .other {
+    float: right;
+}
+.services-box .develop {
+    float: left;
+}
+.color-overlay .sub-heading p{
+    text-align: center; !important
+}
+h2{
+    text-transform: capitalize!important;
+}
+
+
+.select-box:after {
+    right: 5px!important;
+    left: auto!important;
+}
+textarea#message{
+    height: 155px!important;
+}
+
+form h3{
+    text-align: left!important;
+}
+
+.dark-bg input[type=submit], .dark-bg input[type=button], .dark-bg input[type=reset], .dark-bg button, .dark-bg .standard-btn{
+    text-transform: capitalize!important;
+}
+label.file-input{
+    text-align: left!important;
+
+}
+input#file-input {
+    height: 29px;
+        padding: 3px;
+}
+/*
+.single-member img {
+    position: absolute;
+    left: 0;
+    max-width: 100%;
+    height: 100%;
+}*//
+.single-member.team-person {
+    margin-bottom: 40px!important;
+}
+@media (min-width: 650px){
+section#contact .col-sm-8 {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+.col-xs-12.col-sm-8 button{
+float:right
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
