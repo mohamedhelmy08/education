@@ -208,7 +208,10 @@
                 <li><a href="#team">الفريق</a></li>
 
 
-                                        <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="student/show">الطلاب</a></li>
+
+                
 
 
                      

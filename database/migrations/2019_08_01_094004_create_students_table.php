@@ -16,15 +16,16 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->collation('utf8_general_ci');
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->integer('stage');
             $table->integer('is_excellent');
             $table->string('img');
             $table->string('address');
-            $table->integer('is_adaby');
-            $table->integer('is_examed');
-            $table->integer('is_examed_mcq');
-            $table->string('grades');
+            $table->string('password');
+            $table->integer('is_adaby')->nullable($value = true);
+            $table->integer('is_examed')->nullable($value = true);
+            $table->integer('is_examed_mcq')->nullable($value = true);
+            $table->string('grades')->nullable($value = true);
             $table->timestamps();
         });
     }
