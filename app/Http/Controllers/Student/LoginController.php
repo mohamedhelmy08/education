@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
-
+namespace App\Http\Controllers\Student;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /*
@@ -25,15 +25,26 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/adminhome';
+    protected $redirectTo = '/studenthome';
+   
 
+
+    public function showLoginForm()
+    {
+      //dd(Auth::guard());
+       return view('studentlogin');
+    }
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+    protected function guard()
+    {
+       return Auth::guard('student');
+    }
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:student')->except('logout');
     }
 }

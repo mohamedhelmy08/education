@@ -46,6 +46,15 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+                // Doctor guards
+        'student' => [
+        'driver' => 'session',
+        'provider' => 'students',
+        ],
+        'student-api' => [
+        'driver' => 'token',
+        'provider' => 'students',
+        ],
     ],
 
     /*
@@ -70,7 +79,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'students' => [
+        'driver' => 'database',
+        'table' => 'students',
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -97,6 +109,11 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+    'students' => [
+        'provider' => 'students',
+        'table' => 'password_resets',
+        'expire' => 60,
         ],
     ],
 

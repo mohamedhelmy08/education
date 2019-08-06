@@ -75,18 +75,19 @@ body.thin::-webkit-scrollbar {
    1. IMPORT FONTS
 =========================================
 -----------------------------------------*/
-@font-face {
+/*@import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');*/
+/*@font-face {
 	font-family: "JF Flat Regular";
-	src: url('https://ieasoft.net/design/fonts/JF-Flat-regular.eot');
-	src: url('https://ieasoft.net/design/fonts/JF-Flat-regular.eot?#iefix') format('embedded-opentype'),
-	url('https://ieasoft.net/design/fonts/JF-Flat-regular.svg#JF Flat Regular') format('svg'),
-	url('https://ieasoft.net/design/fonts/JF-Flat-regular.woff') format('woff'),
-	url('https://ieasoft.net/design/fonts/JF-Flat-regular.ttf') format('truetype');
+	src: url('design/fonts/JF-Flat-regular.eot');
+	src: url('design/fonts/JF-Flat-regular.eot?#iefix') format('embedded-opentype'),
+	url('design/fonts/JF-Flat-regular.svg#JF Flat Regular') format('svg'),
+	url('design/fonts/JF-Flat-regular.woff') format('woff'),
+	url('design/fonts/JF-Flat-regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
-}
+}*/
 
-@font-face {
+/*@font-face {
 	font-family: 'FontAwesome';
 	src: url('https://ieasoft.net/design/fonts/fontawesome-webfont.eot?v=3.2.1');
 	src: url('https://ieasoft.net/design/fonts/fontawesome-webfont.eot?#iefix&v=3.2.1') format('embedded-opentype'),
@@ -94,7 +95,7 @@ body.thin::-webkit-scrollbar {
 	url('https://ieasoft.net/design/fonts/fontawesome-webfont.ttf?v=3.2.1') format('truetype'),
 	url('https://ieasoft.net/design/fonts/fontawesome-webfont.svg#fontawesomeregular?v=3.2.1') format('svg');
 }
-
+*/
 /* --------------------------------------
 =========================================
   2. GLOBAL STYLES
@@ -289,7 +290,7 @@ ol {
    3.1 TYPOGRAPHY
 ==========================================*/
 * {
-	font-family: "JF Flat Regular", sans-serif;
+	font-family: 'Cairo', sans-serif;
 }
 .dark-bg {
 	color: #fff;
@@ -811,7 +812,7 @@ select {
 	border: 1px solid #2c3e50;
 	outline: none;
 	overflow: auto;
-	font-family: "JF Flat Regular", sans-serif;
+	font-family: 'Cairo', sans-serif;
 	font-size: 14px;
 }
 input[type=file]{
@@ -2029,7 +2030,10 @@ header {
 	background-image: url(../images/a.jpg);
 	background-color:  #2c3e50;
 }
-
+.course{
+	background-image: url(../images/course.jpg);
+	background-color:  #2c3e50;
+}
 .contact .wrapper {
 	max-width: 900px;
 }
@@ -2151,8 +2155,7 @@ header {
 -----------------------------------------*/
 footer {
 	position: relative;
-	padding: 60px;
-	padding-top: 75px;
+	padding: 13px;
 	background: #2c3e50;
 }
 
@@ -2330,10 +2333,10 @@ a.secondary-btn.btn{
 	box-shadow: 5px 5px 5px #b3b8b9, -5px -5px 5px #b3b8b9;
 	transform: scale(.8);
 	transition: all 1s ease;
-	height: 575px;
+	/*height: 575px;*/
 	background: #fff;
-	height:650px;
-	margin-top:-75px
+	/*height:650px;
+	margin-top:-75px*/
 }
 
 .develop:hover, .design:hover, .program:hover, .phone:hover , .other:hover{

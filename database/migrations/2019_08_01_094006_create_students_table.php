@@ -17,14 +17,17 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->collation('utf8_general_ci');
             $table->string('phone');
+            $table->string('password');
             $table->integer('stage');
-            $table->integer('is_excellent');
-            $table->string('img');
-            $table->string('address');
-            $table->integer('is_adaby');
-            $table->integer('is_examed');
-            $table->integer('is_examed_mcq');
+            $table->integer('is_excellent')->default('1');
+            $table->string('img')->nullable();
+            $table->string('address')->nullable();
+            $table->integer('is_adaby')->default('1');
+            $table->integer('is_examed')->default('0');
+            $table->integer('is_examed_mcq')->default('0');
+            $table->integer('is_approved')->default('0');
             $table->string('grades');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

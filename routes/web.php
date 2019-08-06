@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index-page');
 });
+// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Route::post('register', 'Auth\RegisterController@register');
+Route::get('admin','Auth\LoginController@showLoginForm')->name('admin');
+Route::post('admin','Auth\LoginController@login');
+Route::get('studentregister', 'Student\RegisterController@showRegistrationForm')->name('studentregister');
+Route::post('studentregister', 'Student\RegisterController@register');
+Route::get('studentlogin','Student\LoginController@showLoginForm')->name('studentlogin');
+Route::post('studentlogin','Student\LoginController@login');
+Auth::routes();
+
+Route::get('/adminhome', 'HomeController@index')->name('home');
+Route::get('/studenthome', 'StudentController@index')->name('home');
+Route::resource('/courses', 'CourseController');
+Route::get('/addfile', 'CourseController@showAddFile');
+Route::post('/addfile', 'CourseController@add_file');
+Route::get('/downloadfile/{file_name}', 'CourseController@download');
+Route::get('deletefile/{id}', 'CourseController@delete_file');

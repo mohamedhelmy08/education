@@ -17,10 +17,24 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
-        }
+        // if (Auth::guard($guard)->check()) {
+        //     return redirect('/adminhome');
+        // }
+        switch ($guard) {
+          case 'student':
+          if(Auth::guard($guard)->check()){
+            //dd($guard);
 
-        return $next($request);
+          return redirect('/studenthome');
+          }
+          break;
+          default:
+          if (Auth::guard($guard)->check()) {
+          return redirect('/adminhome');
+          }
+          break;
+          }
+
+          return $next($request);
     }
 }

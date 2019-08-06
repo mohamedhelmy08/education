@@ -15,8 +15,9 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('file_name');
             $table->integer('stage');
-            $table->integer('is_adaby');
+            $table->integer('is_adaby')->default('1');;
             $table->string('file');
             $table->timestamps();
         });
