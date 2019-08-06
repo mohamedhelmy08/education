@@ -16,6 +16,7 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->collation('utf8_general_ci');
+<<<<<<< HEAD:database/migrations/2019_08_01_094006_create_students_table.php
             $table->string('phone');
             $table->string('password');
             $table->integer('stage');
@@ -28,6 +29,18 @@ class CreateStudentsTable extends Migration
             $table->integer('is_approved')->default('0');
             $table->string('grades');
             $table->rememberToken();
+=======
+            $table->string('phone')->unique();
+            $table->integer('stage');
+            $table->integer('is_excellent');
+            $table->string('img');
+            $table->string('address');
+            $table->string('password');
+            $table->integer('is_adaby')->nullable($value = true);
+            $table->integer('is_examed')->nullable($value = true);
+            $table->integer('is_examed_mcq')->nullable($value = true);
+            $table->string('grades')->nullable($value = true);
+>>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27:database/migrations/2019_08_01_094004_create_students_table.php
             $table->timestamps();
         });
     }

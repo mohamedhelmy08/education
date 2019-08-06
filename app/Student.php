@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 class Student extends Authenticatable
@@ -22,4 +23,10 @@ class Student extends Authenticatable
         'password', 'remember_token',
     ];
 
+=======
+
+class Student extends Model
+{
+    //
+>>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27
 }
