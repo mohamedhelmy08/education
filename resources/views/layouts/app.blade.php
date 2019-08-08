@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-=======
-    <html dir="rtl" lang="ar">
->>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27
+<html dir="rtl" lang="ar">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,14 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-<<<<<<< HEAD
-=======
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script> --}}
->>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -29,11 +23,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" >
->>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -93,14 +84,11 @@
             @yield('content')
         </main>
     </div>
-<<<<<<< HEAD
-=======
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script> 
     <script src="{{asset('js/custom.js')}}" ></script> 
->>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27
 </body>
 </html>

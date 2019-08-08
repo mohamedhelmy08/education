@@ -47,6 +47,7 @@ class StudentsController extends Controller
             $student->is_excellent = $request->is_exellent;
             $student->img = $img_name;
             $student->address = $request->address;
+            $student->is_approved = 1;
             $student->password = md5($request->password);
             if($request->stage == 2){
                   $student->is_adaby = $request->is_adaby;
@@ -127,7 +128,7 @@ class StudentsController extends Controller
     public function changeState(Request $request,$id)
     {
         $student = Student::find($id);
-        $student->is_excellent = $request->is_excellent;
+        $student->is_approved = $request->is_approved;
         $student->save();
         return redirect('student/show');
     }

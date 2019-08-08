@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('adminhome')
 
 @section('content')
-<div class="container">
+
+<div class="" style="margin-top:100px;height:400px">
     <form action="add" method="GET">
     <input type="submit" class="btn btn-primary float-right" value="اضافه"><br>
     </form>
@@ -11,14 +12,15 @@
                 <th>الاسم</th>
                 <th>المرحله</th>
                 <th>المستوي</th>
-                {{-- <th>تغير المستوي</th> --}}
+                <th>حاله الطالب</th>
+                <th>تغير الحاله</th>
                 <th>الاجراء</th>
             </tr>
         </thead>
         <tbody>
             @if(isset($students))   
                 @foreach ($students as $student) 
-                    <tr>
+                    <tr style="background-color:{{($student->is_approved == 0)?'#fabbb6':'' }}">
                         <td>{{ $student->name }}</td>
                         <td>@if( $student->stage == 1)
                             المرحله الاولي 
@@ -28,16 +30,17 @@
                             المرحله الثالثه
                         @endif
                         <td>{{ ($student->is_excellent == '1')?'ممتاز':"ضعيف" }}</td>
-                        {{-- <td><form action="edit/state/{{$student->id}}" method="post" id="changeStateForm">
+                        <td>{{ ($student->is_approved == '1')?'مقبول':"مرفوض" }}</td>
+                        <td><form action="edit/state/{{$student->id}}" method="post" id="changeStateForm">
                                 @csrf
-                                <select class="form-control" id="changeState" name="is_excellent">
-                                        <option>اختر المستوي</option>
-                                        <option value="1" >ممتاز</option>
-                                        <option value="0" >ضعيف</option>
+                                <select class="form-control" id="changeState" name="is_approved" onchange="submit()">
+                                        <option>اختر حاله الطالب </option>
+                                        <option value="1" >مقبول</option>
+                                        <option value="0" >مرفوض</option>
                                     </select> 
                             </form>
-                        </td> --}}
-                        <td><form action="edit/{{$student->id}}"><input type="submit" class="btn btn-success float-right" value="تعديل" style="margin-left:5px;"></form>
+                        </td>
+                        <td width="22%"><form action="edit/{{$student->id}}"><input type="submit" class="btn btn-success float-right" value="تعديل" style="margin-left:5px;"></form>
                             <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal" id='deleteBtn' onclick="assignData('delete/{{$student->id}}')">حذف</button></td>
                     </tr>
                 @endforeach
@@ -50,7 +53,8 @@
                 <th>الاسم</th>
                 <th>المرحله</th>
                 <th>المستوي</th>
-                {{-- <th>تغير المستوي</th> --}}
+                <th>حاله الطالب</th>
+                <th>تغير الحاله</th>                
                 <th>الاجراء</th>
             </tr>
         </tfoot>

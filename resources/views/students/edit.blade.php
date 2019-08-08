@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('adminhome')
 
 @section('content')
-<div class="container">
+<div class="" style="margin-top:100px">
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -14,26 +14,26 @@
     <form action="{{asset('/student/edit/'.$student->id)}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <div class="form-group">
-      <label class="float-right">الاسم</label>
+      <div class="float-right">الاسم</div>
     <input type="text" class="form-control"  placeholder="ادخل الاسم" name="name" value="{{$student->name}}">
     </div>
 
     <div class="form-group">
-        <label class="float-right">رقم الموبايل </label>
+        <div class="float-right">رقم الموبايل </div>
         <input type="text" class="form-control"  placeholder="ادخل رقم الموبايل"name="phone" value="{{$student->phone}}">
     </div>
 
     <div class="form-group">
-            <label class="float-right">العنوان</label>
+            <div class="float-right">العنوان</div>
             <input type="text" class="form-control"  placeholder="ادخل العنوان"name="address" value="{{$student->address}}">
         </div>
 
     <div class="form-group">
-        <label class="float-right">اختر صوره</label>
+        <div class="float-right">اختر صوره</div>
         <div class="input-group">
             <div class="custom-file">
                 <input type="file" class="custom-file-input" name="img">
-                <label class="custom-file-label" for="inputGroupFile04">اختر صوره</label>
+                <div class="custom-file-label" for="inputGroupFile04">اختر صوره</div>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
     <input type="hidden" name="old_img" value="{{$student->img}}">
 
     <div class="form-group">
-        <label class="float-right" for="selectStage">اختر المرحله</label>
+        <div class="float-right" for="selectStage">اختر المرحله</div>
         <select class="form-control" id="selectStage" name="stage">
             <option>اختر المرحله</option>
             <option value="1" {{($student->stage == 1)?'selected':''}}>المرحله الاولي </option>
@@ -50,33 +50,33 @@
         </select> 
     </div>
     <div class="form-group" style="display: none;" id="is_adaby">
-        <label class="float-right" for="selectStage">التخصص الدراسي </label>
+        <div class="float-right" for="selectStage">التخصص الدراسي </div>
         <div class="float-right form-check form-check-inline">
             <input class="form-check-input" type="radio" name="is_adaby"  value="1" {{($student->is_adaby == 1)?'checked':''}}>
-            <label class="form-check-label" for="inlineRadio1">ادبي</label>
+            <div class="form-check-label" for="inlineRadio1">ادبي</div>
         </div>
         <div class="float-right form-check form-check-inline">
             <input class="form-check-input" type="radio" name="is_adaby" value="0" {{($student->is_adaby == 0)?'checked':''}}>
-            <label class="form-check-label" for="inlineRadio2">علمي</label>
+            <div class="form-check-label" for="inlineRadio2">علمي</div>
         </div>
          <br>
     </div>
     
     <div class="form-group">
-        <label class="float-right" for="selectStage">مستوي الطالب</label>
+        <div class="float-right" for="selectStage">مستوي الطالب</div>
         <div class="float-right form-check form-check-inline">
             <input class="form-check-input" type="radio" name="is_exellent"  value="1" {{($student->is_excellent == 1)?'checked':''}}>
-            <label class="form-check-label" for="inlineRadio1">ممتاز</label>
+            <div class="form-check-label" for="inlineRadio1">ممتاز</div>
         </div>
         <div class="float-right form-check form-check-inline">
             <input class="form-check-input" type="radio" name="is_exellent" value="0" {{($student->is_excellent == 0)?'checked':''}}>
-            <label class="form-check-label" for="inlineRadio2">ضعيف</label>
+            <div class="form-check-label" for="inlineRadio2">ضعيف</div>
         </div><br>
     </div>
 
 
     
-    <button type="submit" class="float-right btn btn-primary">حفظ</button>
+    <button type="submit" class="float-right btn btn-primary" style="color:#e74c3c;margin-bottom:5px">حفظ</button>
   </form>
 </div>
   @endsection
