@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
     return view('index-page');
 });
 // Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -25,29 +24,30 @@ Route::get('studentlogin','Student\LoginController@showLoginForm')->name('studen
 Route::post('studentlogin','Student\LoginController@login');
 Auth::routes();
 
-Route::get('/adminhome', 'HomeController@index')->name('home');
-Route::get('/studenthome', 'StudentController@index')->name('home');
-Route::resource('/courses', 'CourseController');
-Route::get('/addfile', 'CourseController@showAddFile');
-Route::post('/addfile', 'CourseController@add_file');
-Route::get('/downloadfile/{file_name}', 'CourseController@download');
-Route::get('deletefile/{id}', 'CourseController@delete_file');
-=======
-
-    return view('index-page');
-});
+Route::get('/adminhome', 'HomeController@index')->name('home')->middleware('auth:web');
+Route::get('/studenthome', 'StudentsController@index')->name('home')->middleware('auth:student');
+Route::resource('/courses', 'CourseController')->middleware('auth:web');
+Route::get('/addfile', 'CourseController@showAddFile')->middleware('auth:web');
+Route::post('/addfile', 'CourseController@add_file')->name('addfile')->middleware('auth:web');
+Route::get('/downloadfile/{file_name}', 'CourseController@download')->middleware('auth:web');
+Route::get('deletefile/{id}', 'CourseController@delete_file')->middleware('auth:web');
+Route::get('see_more', 'CourseController@filesSeeMore');
+// =======
+//
+//     return view('index-page');
+// });
 
 //start student route
-Route::get('student/add','StudentsController@add');
-Route::post('student/save','StudentsController@add');
-Route::get('student/show','StudentsController@showAll');
-Route::get('student/edit/{id}','StudentsController@edit');
-Route::post('student/edit/{id}','StudentsController@edit');
-Route::get('student/delete/{id}','StudentsController@delete');
-Route::post('student/edit/state/{id}','StudentsController@changeState');
+Route::get('student/add','StudentsController@add')->middleware('auth:web');
+Route::post('student/save','StudentsController@add')->middleware('auth:web');
+Route::get('student/show','StudentsController@showAll')->middleware('auth:web');
+Route::get('student/edit/{id}','StudentsController@edit')->middleware('auth:web');
+Route::post('student/edit/{id}','StudentsController@edit')->middleware('auth:web');
+Route::get('student/delete/{id}','StudentsController@delete')->middleware('auth:web');
+Route::post('student/edit/state/{id}','StudentsController@changeState')->middleware('auth:web');
 //end student route
+//
+// Auth::routes();
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27
+// Route::get('/home', 'HomeController@index')->name('home');
+// >>>>>>> df43f438f381d0c6c1c4cbb422486d61fe426d27

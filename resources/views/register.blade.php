@@ -86,6 +86,7 @@
     <link rel="stylesheet" href="design/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" >
 
     <!-- FORMSTONE NAVIGATION -->
 
@@ -200,9 +201,10 @@
                                     </span>
                                 @enderror
                                   <!-- NAME -->
-                                  <label for="name">الاسم</label>
+                                  <!-- <label for="name">الاسم</label> -->
                                   <input id="name" name="name" type="text" value=""
-                                         placeholder="الاسم"  class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required  autofocus>
+                                         placeholder="الاسم"  class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required   oninvalid="this.setCustomValidity('من فضلك ادخل حقل الاسم ')"
+    oninput="this.setCustomValidity('')"  autofocus>
                             </div>
                             <div class="col-6">
                               @error('phone')
@@ -211,9 +213,10 @@
                                   </span>
                               @enderror
                                 <!-- PHONE NUMBER -->
-                                <label for="phone">الهاتف</label>
-                                <input id="phone" name="phone" type="tel" value=""
-                                       placeholder="الهاتف"  class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" required>
+                                <!-- <label for="phone">الهاتف</label> -->
+                                <input id="phone" required name="phone" type="tel" value=""
+                                       placeholder="الهاتف"  class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}"  oninvalid="this.setCustomValidity('من فضلك ادخل حقل الهاتف ')"
+  oninput="this.setCustomValidity('')">
                              </div>
                              <div class="col-6">
                                @error('password')
@@ -222,13 +225,15 @@
                                    </span>
                                @enderror
                                  <!-- Password -->
-                                 <label for="password">كلمة المرور</label>
-                                 <input  placeholder="كلمة المرور" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                 <!-- <label for="password">كلمة المرور</label> -->
+                                 <input  placeholder="كلمة المرور" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"  oninvalid="this.setCustomValidity('من فضلك ادخل كلمة المرور')"
+oninput="this.setCustomValidity('')">
                               </div>
                               <div class="col-6">
                                   <!--Confirm Password -->
-                                  <label for="password">تاكيد كلمة المرور</label>
-                                  <input  placeholder="تاكيد كلمة المرور " id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                  <!-- <label for="password">تاكيد كلمة المرور</label> -->
+                                  <input  placeholder="تاكيد كلمة المرور " id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"  oninvalid="this.setCustomValidity('من فضلك اكد كلمة مرورك')"
+oninput="this.setCustomValidity('')" >
                                </div>
                                <div class="col-6">
                                  @error('stage')
@@ -238,7 +243,8 @@
                                  @enderror
                                    <!-- STAGE -->
                                    <label class="select-box">
-                                      <select id="select" required=""  name="stage">
+                                      <select id="selectStage" required=""  name="stage"  oninvalid="this.setCustomValidity('من فضلك اختر مرحلة')"
+ oninput="this.setCustomValidity('')">
                                           <!-- LABEL FOR OPTIONAL SELECT BOX-->
                                           <option class="optional-select-box-label" disabled  selected> إختر المرحلة</option>
                                           <option value ="1">الصف الاول الثانوى</option>
@@ -247,6 +253,18 @@
                                       </select>
                                   </label>
                                 </div>
+                                <div class="form-group" style="display: none;padding-right:15px;" id="is_adaby" >
+                                    <label class="float-right" for="selectStage">التخصص الدراسي </label>
+                                    <div class="float-right form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="is_adaby"  value="1" checked>
+                                        <label class="form-check-label" for="inlineRadio1">ادبي</label>
+                                    </div>
+                                    <div class="float-right form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="is_adaby" value="0">
+                                        <label class="form-check-label" for="inlineRadio2">علمي</label>
+                                    </div>
+                                     <br>
+                                </div>
                                <div class="col-6">
                                  @error('address')
                                      <span class="invalid-feedback" role="alert">
@@ -254,9 +272,10 @@
                                      </span>
                                  @enderror
                                    <!-- ADDRESS -->
-                                   <label for="address">العنوان</label>
+                                   <!-- <label for="address">العنوان</label> -->
                                    <input id="address" name="address" type="text" value=""
-                                          placeholder="العنوان"  class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" required  autofocus>
+                                          placeholder="العنوان"  class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" required  autofocus oninvalid="this.setCustomValidity('من فضلك دخل حقل العنوان')"
+     oninput="this.setCustomValidity('')">
                                 </div>
                               <div class="form-group row mb-0">
                                   <div class="col-md-8 offset-md-4">
@@ -369,5 +388,14 @@
 <!-- Custom Script -->
 
 <script src="design/js/custom.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
+<script src="{{asset('js/custom.js')}}" ></script>
+
 </body>
 </html>

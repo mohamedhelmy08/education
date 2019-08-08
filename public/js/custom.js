@@ -1,5 +1,14 @@
-$('#mydatattable').DataTable();
-
+$('#mydatattable').DataTable({
+        "dom": '<"pull-left"f><"pull-right"l>tip',
+        "language": {
+    "search": "بحث : ",
+    "paginate": {
+        "next":       "التالى",
+        "previous":   "السابق"
+    },
+  }
+});
+// $('tableSelector').DataTable();
 function assignData(url){
     $('#deleteConfirm').attr("action" , url);
 }

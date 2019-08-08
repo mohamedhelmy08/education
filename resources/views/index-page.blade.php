@@ -319,53 +319,65 @@
 
                 <!-- LINE -->
                 <div class="main-line"></div>
+                <h3 style="text-align:right;">الصف الاول الثانوى </h3>
 
+                    <div class="row services-box text-center">
+                      @foreach(App\Course::where('stage','=',1)->where('is_adaby','=','0')->paginate(8) as $fdata)
+                          <div class="col-xs-12 col-sm-4 develop">
+
+                                   <h3>{{$fdata->file_name}}</h3>
+                          <div class="btn-container">
+                                <a class="btn secondary-btn" href="downloadfile/{{$fdata->file_name}}">تحميل</a>
+                            </div>
+                          </div>
+                      @endforeach
+                    </div>
+                      <!--====================second stage adaby================================-->
+
+                      <h3 style="text-align:right;">الصف الثانى الثانوى - أدبى  </h3>
+                  <div class="row services-box text-center">
+                    @foreach(App\Course::where('stage','=',2)->where('is_adaby','=','1')->paginate(8) as $adata)
+                        <div class="col-xs-12 col-sm-4 develop">
+
+                                 <h3>{{$adata->file_name}}</h3>
+                        <div class="btn-container">
+                          <a class="btn secondary-btn" href="deletefile/{{$adata->file_name}}"> تحميل</a>
+                          </div>
+                        </div>
+                    @endforeach
+                  </div>
+                      <!--==================second stage 3lmy=================================-->
+
+                      <h3 style="text-align:right;">الصف الثانى الثانوى - علمى </h3>
+
+                  <div class="row services-box text-center">
+
+                    @foreach(App\Course::where('stage','=',2)->where('is_adaby','=','0')->paginate(8) as $edata)
+                        <div class="col-xs-12 col-sm-4 develop">
+
+                                 <h3>{{$edata->file_name}}</h3>
+                        <div class="btn-container">
+                          <a class="btn secondary-btn" href="deletefile/{{$edata->file_name}}">تحميل</a>
+                          </div>
+                        </div>
+                    @endforeach
+                  </div>
+                      <!-- ===================third stage======================-->
+
+                      <h3 style="text-align:right;">الصف الثالث الثانوى </h3>
                 <div class="row services-box text-center">
+                  @foreach(App\Course::where('stage','=',3)->where('is_adaby','=','0')->paginate(8) as $tdata)
+                      <div class="col-xs-12 col-sm-4 develop">
 
-                <div class="col-xs-12 col-sm-4 develop">
-
-                         <h3>الحصة الولى الصف الاول الثانوى</h3>
-                <div class="btn-container">
-                      <a class="btn secondary-btn" href="#contact">تحميل</a>
-                  </div>
+                               <h3>{{$tdata->file_name}}</h3>
+                      <div class="btn-container">
+                        <a class="btn secondary-btn" href="deletefile/{{$tdata->file_name}}"> تحميل</a>
+                        </div>
+                      </div>
+                  @endforeach
                 </div>
-                <div class="col-xs-12 col-sm-4 develop">
-
-                         <h3>الحصة الولى الصف الاول الثانوى</h3>
-                <div class="btn-container">
-                      <a class="btn secondary-btn" href="#contact">تحميل</a>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 develop">
-
-                         <h3>الحصة الاولى الصف الثانى الثانوى</h3>
-                <div class="btn-container">
-                      <a class="btn secondary-btn" href="#contact">تحميل</a>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 develop">
-
-                          <h3>الحصة الاولى الصف الثالث الثانوى</h3>
-                <div class="btn-container">
-                      <a class="btn secondary-btn" href="#contact">تحميل</a>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 develop">
-
-                         <h3>الحصة الثانية الصف الثانى الثانوى</h3>
-                <div class="btn-container">
-                      <a class="btn secondary-btn" href="#contact">تحميل</a>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 develop">
-
-                         <h3>الحصة الثانية الصف الثالث الثانوى</h3>
-                <div class="btn-container">
-                      <a class="btn secondary-btn" href="#contact">تحميل</a>
-                  </div>
-                </div>
-              </div>
-
+                <h3><a style="text-decoration: underline;padding-top:15px;" href="see_more"> المزيد</a></h3>
+           </div>
         </section>
             <!-- =========================
      CONTACT

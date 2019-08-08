@@ -182,7 +182,7 @@
 </nav>
   <section class="contact dark-bg">
             <div class="color-overlay mapOverlay">
-                <div class="container" style="padding-top:60px;">
+                <div class="container content" style="padding-top:140px;">
                     <div class="col-xs20 col-sm10">
                         <div class="wrapper">
                             <form method="POST" action="{{ route('login') }}" accept-charset="UTF-8" enctype="multipart/form-data">
@@ -195,9 +195,10 @@
                                   </span>
                               @enderror
                                 <!-- PHONE NUMBER -->
-                                <label for="phone">الهاتف</label>
+                                <!-- <label for="phone">الهاتف</label> -->
                                 <input id="phone" name="phone" type="tel" value=""
-                                       placeholder="الهاتف"  class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" required  autofocus>
+                                       placeholder="الهاتف"  class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone') }}" required  autofocus oninvalid="this.setCustomValidity('من فضلك دخل حقل الهاتف')"
+  oninput="this.setCustomValidity('')">
                              </div>
                              <div class="col-6">
                                @error('password')
@@ -206,8 +207,9 @@
                                    </span>
                                @enderror
                                  <!-- Password -->
-                                 <label for="password">الرقم السري</label>
-                                 <input  placeholder="الرقم السري" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                 <!-- <label for="password">كلمة المرور</label> -->
+                                 <input  placeholder="كلمة المرور" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" oninvalid="this.setCustomValidity('من فضلك ادخل كلمة المرور')"
+oninput="this.setCustomValidity('')">
                               </div>
                               <!-- <div class="form-group row">
                                   <div class="col-md-6 offset-md-4">
@@ -221,16 +223,18 @@
                                   </div>
                               </div> -->
                               <div class="form-group row mb-0">
-                                  <div class="col-md-8 offset-md-4">
-                                      <button type="submit" class="btn btn-primary">
-                                          {{ __('دخول') }}
-                                      </button>
-
+                                <div class="col-md-4">
                                       @if (Route::has('password.request'))
-                                          <a class="btn btn-link" href="{{ route('password.request') }}">
+                                          <!-- <a class="btn btn-link float-right" href="{{ route('password.request') }}"> -->
+                                          <a class="btn btn-link float-right" href="#">
                                               {{ __('هل نسيت كلمة المرور؟') }}
                                           </a>
                                       @endif
+                                  </div>
+                                  <div class="col-md-4 offset-md-4">
+                                      <button type="submit" class="btn btn-primary">
+                                          {{ __('دخول') }}
+                                      </button>
                                   </div>
                               </div>
                           </div>
@@ -241,36 +245,35 @@
                 </div>
             </div> <!-- /END OVERLAY -->
          </section>
-<footer class="dark-bg">
-    <!-- SOCIAL NAVIGATION -->
-    <div class="row">
-    <div class="col-xs-4 col-sm-6">
-        <h3>تواصل معنا</h3>
+         <footer class="dark-bg">
+             <!-- SOCIAL NAVIGATION -->
 
-        <ul class="social-navigation">
+             <div class="col-xs-12 col-sm-4">
 
-            <li><a href="https://facebook.com/ieasoft" class="icon"><i class="fa fa-facebook"></i></a></li>
+                 <h3>تواصل معنا</h3>
 
-            <li><a href="https://twitter.com/ieasoft" class="icon"><i class="fa fa-twitter"></i></a></li>
+                 <ul class="social-navigation">
 
-            <li><a href="https://www.linkedin.com/company/ieasoft" class="icon"><i class="fa fa-linkedin"></i></a></li>
+                     <li><a href="https://facebook.com/ieasoft" class="icon"><i class="fa fa-facebook"></i></a></li>
+
+                     <li><a href="https://twitter.com/ieasoft" class="icon"><i class="fa fa-twitter"></i></a></li>
+
+                     <li><a href="https://www.linkedin.com/company/ieasoft" class="icon"><i class="fa fa-linkedin"></i></a></li>
 
 
 
-        </ul>
-    </div>
-    <!-- COPYRIGHT -->
-    <div class="col-xs-4 col-sm-6">
+                 </ul>
 
-           <p style="padding-top: 60px">
+             </div>
+             <!-- COPYRIGHT -->
 
-               جميع الحقوق محفوظة © | <span dir="ltr">Next</span>&nbsp; &nbsp; &nbsp; 2019
+             <p style="padding-top: 140px">
 
-           </p>
-    </div>
-  </div>
-</footer>
+                 جميع الحقوق محفوظة © | <span dir="ltr">Next </span> &nbsp; &nbsp; &nbsp;2019
 
+             </p>
+
+         </footer>
 
 <!-- =========================
 

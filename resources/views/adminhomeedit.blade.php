@@ -183,10 +183,10 @@
         <!-- NAVIGATION LINKS -->
 
         <ul class="navigation-links" data-navigation-handle=".navbar-header">
-                <li><a href="/adminhome">الرئيسية</a></li>
-                <li><a href="/student/show">الطلاب</a></li>
+                <li><a href="../adminhome">الرئيسية</a></li>
+                <li><a href="../student/show">الطلاب</a></li>
                 <li><a href="#about">الامتحانات</a></li>
-              <li><a href="/courses">الحصص الجديدة</a></li>
+              <li><a href="../courses">الحصص الجديدة</a></li>
               <li><a href="#">الملف الشخصي</a></li>
               <li><a  href="{{ route('logout') }}"
                  onclick="event.preventDefault();

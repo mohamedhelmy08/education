@@ -16,7 +16,18 @@ class CourseController extends Controller
      */
     public function index()
     {
-       return view('courses');
+       $cstage1 = DB::table('courses')->where('stage','=',1)->where('is_adaby','=','0')->paginate(8);
+       $cstage2adaby = DB::table('courses')->where('stage','=',2)->where('is_adaby','=','1')->paginate(8);
+       $cstage23lmy = DB::table('courses')->where('stage','=',2)->where('is_adaby','=','0')->paginate(8);
+       $cstage3 = DB::table('courses')->where('stage','=',3)->where('is_adaby','=','0')->paginate(8);
+       $data=[
+         'first' => $cstage1,
+         'adaby' => $cstage2adaby,
+         'elmy' => $cstage23lmy,
+         'third' => $cstage3,
+       ];
+      // dd($cstage1);
+       return view('courses')->with('data',$data);
     }
 
     /**
@@ -24,11 +35,29 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function filesSeeMore()
+     {
+          $cstage1 = DB::table('courses')->where('stage','=',1)->where('is_adaby','=','0')->paginate(8);
+          $cstage2adaby = DB::table('courses')->where('stage','=',2)->where('is_adaby','=','1')->paginate(8);
+          $cstage23lmy = DB::table('courses')->where('stage','=',2)->where('is_adaby','=','0')->paginate(8);
+          $cstage3 = DB::table('courses')->where('stage','=',3)->where('is_adaby','=','0')->paginate(8);
+          $data=[
+            'first' => $cstage1,
+            'adaby' => $cstage2adaby,
+            'elmy' => $cstage23lmy,
+            'third' => $cstage3,
+          ];
+         // dd($cstage1);
+          return view('file_see_more')->with('data',$data);
+     }
     public function create()
     {
         //
     }
-
+    public function showAddFile(Request $request)
+    {
+        return view('addfile');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -41,8 +70,14 @@ class CourseController extends Controller
     }
     public function add_file(Request $request)
     {
-    $this->validate($request,['file_name'=>'required:courses,file_name',
-        'stage'=>'required:courses,stage','file' => 'required|mimes:pdf|max:10000']);
+      $this->validate($request,[
+            'file_name' => 'required|min:2',
+            'file' => 'required|mimes:pdf|max:10000',]
+            ,
+            [
+            'file.mimes' => 'من فضلك ارفق ملف بصيغة صحيحة ',
+            'file_name.min' => 'اسم الملف  اقل من حرفين',
+            ]);
      $file_name= $request->input('file_name');
      $stage = $request->input('stage');
      $files = $request->file('file');
@@ -50,18 +85,28 @@ class CourseController extends Controller
          $course = new Course;
          $course->file_name=$file_name;
          $course->stage=$stage;
+         if($request->stage == 2){
+               $course->is_adaby = $request->is_adaby;
+         }else{
+             $course->is_adaby = 2;
+           }
     }else{
-     $destinationpath = 'public/Uploaded';
+     $destinationpath = 'Uploaded';
      $filename = date('Y-m-d_H-i').$files->getClientOriginalName();
      $files->move($destinationpath,$filename);
      $course = new Course;
      $course->file_name=$file_name;
      $course->stage=$stage;
+     if($request->stage == 2){
+           $course->is_adaby = $request->is_adaby;
+     }else{
+         $course->is_adaby = 2;
+       }
      $course->file=$filename;
     }
         session()->push('alert','Success');
         session()->push('alert',' لقد تمت إضافة الحصة بنجاح');
-         $book->save();
+         $course->save();
           return redirect('courses');
     }
     /**
@@ -109,8 +154,9 @@ class CourseController extends Controller
      */
     public function delete_file($id)
       {
-        $myfile = DB::table('courses')->where('id','=',$id)->get();
-        $oldfile = $myfile->file ;
+        $myfile = DB::table('courses')->where('id','=',$id)->get()->first();
+        //dd($myfile);
+        $oldfile = $myfile->file;
        File::delete(public_path('Uploaded/'. $oldfile));
         DB::table('courses')->where('id', '=', $id)->delete();
          session()->push('alert','Success');

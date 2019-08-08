@@ -201,9 +201,10 @@
     </div> <!-- /END WRAPPER -->
 
 </nav>
-<div class="container">
+<!-- <div class="container">
 اهلا بكم فى لوحة تحكم الطالب
-</div>
+</div> -->
+@yield('content')
 <footer class="dark-bg">
     <!-- SOCIAL NAVIGATION -->
 

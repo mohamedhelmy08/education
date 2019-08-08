@@ -8,7 +8,10 @@ use App\Student;
 class StudentsController extends Controller
 {
     //
-
+    public function index()
+    {
+        return view('student');
+    }
     public function add(Request $request)
     {
         if($request->isMethod('post')){
@@ -37,7 +40,7 @@ class StudentsController extends Controller
                 $image = $request->file('img');
                 $img_name = time().'.'.$image->getClientOriginalExtension();
                 $destinationPath = public_path('/profile');
-                $image->move($destinationPath, $img_name);                  
+                $image->move($destinationPath, $img_name);
             }
 
             $student = new Student();
@@ -54,7 +57,7 @@ class StudentsController extends Controller
                 $student->is_adaby = 2;
 
             $student->save();
-            
+
             return redirect('student/show');
         }
         return view('students.add');
@@ -63,7 +66,7 @@ class StudentsController extends Controller
     public function showAll(Request $request)
     {
         $students = Student::all();
-        
+
         return view('students.show')->with(['students'=>$students]);
     }
 
@@ -118,7 +121,7 @@ class StudentsController extends Controller
         $student = Student::find($id);
         if($student->img != 'avatar.png'){
             unlink('profile/'.$student->img);
-        } 
+        }
         $student->delete();
         return redirect('student/show');
      }
