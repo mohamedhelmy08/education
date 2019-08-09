@@ -685,7 +685,7 @@ a.icon:hover i {
 /*========================================
    3.11 BUTTONS
 ==========================================*/
-hr { 
+/*hr { 
   display: block;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -791,7 +791,7 @@ a.secondary-btn:before {
 	margin: 0px 16px;
 	overflow: hidden;
 }
-
+*/
 /*========================================
    3.12 FORMS AND CONTROLS
 ==========================================*/

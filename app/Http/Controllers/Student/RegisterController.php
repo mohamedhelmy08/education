@@ -29,7 +29,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/studenthome';
-   
+
     public function showRegistrationForm()
     {
         return view('register');
@@ -53,11 +53,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', '', 'max:255', 'unique:users'],
+            'phone' => ['min:11|numeric','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'stage' => ['required', 'string'],
-            'address' => ['required', 'string'],
+            "name" => 'required|min:2',
+            "address" => 'required|min:2',]
+            ,
+            ['name.required' => 'من فضلك ادخل حقل الاسم',
+            'phone.unique' => 'هذا الرقم موجود بالفعل ',
+            'phone.numeric' => 'رقم الموبايل لابد ان يكون ارقام',
+            'address.required' => 'من فضلك ادخل حقل العنوان',
+            'name.min' => 'الاسم اقل من حرفين',
+            'phone.min' => 'رقم الموبايل اقل من 11 رقم',
+            'address.min' => 'العنوان اقل من حرفين ',
+            'password.min' => 'كلمه المرور اقل من 2',
         ]);
     }
 
@@ -69,12 +78,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if($data['stage']== 2){
+            $is_adaby = $data['is_adaby'];
+      }else{
+          $is_adaby = 2;
+        }
         return Student::create([
             'name' => $data['name'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
             'stage' => $data['stage'],
             'address' => $data['address'],
+            'is_adaby'=>$is_adaby,
         ]);
     }
 }
