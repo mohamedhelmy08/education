@@ -110,5 +110,8 @@ Route::post('student/edit/state/{id}','StudentsController@changeState');
 Route::get('exam/add','QuizController@add');
 Route::post('exam/save','QuizController@add');
 Route::get('exam/show','QuizController@showAll');
+Route::get('exam/delete/{is_mcq}/{quiz_number}/{stage}/{is_excellent}/{is_adaby}','QuizController@delete');
+Route::get('exam/edit/{is_mcq}/{quiz_number}/{stage}/{is_excellent}/{is_adaby}','QuizController@edit'); 
+Route::post('exam/edit','QuizController@edit'); 
 //end quiz route
 

@@ -28,6 +28,16 @@ $('#document').ready(function(){
              }
           });
     });
+    
+    if($("input[name='is_mcq']:checked").val() == 1){
+        $('#requireInfo').css('display','block');    
+        $('#noMcqSection').css('display','none');
+        $('#mcqSection').css('display','block');
+    }else{
+        $('#requireInfo').css('display','block');
+        $('#mcqSection').css('display','none');
+        $('#noMcqSection').css('display','block');        
+    }
 
     $("input[name='is_mcq']").change(function(){
         $('#requireInfo').css('display','block');

@@ -421,6 +421,7 @@
                     <th>المرحله</th>
                     <th>التخصص</th>
                     <th>المستوي</th>                
+                    <th>نوع الاختبار</th>                
                     <th>الاجراء</th>
                 </tr>
             </thead>
@@ -444,8 +445,9 @@
                                 غير معرف
                             @endif</td>
                             <td>{{ ($quiz->is_excellent == '1')?'ممتاز':"ضعيف" }}</td>
-                            <td><form action="edit/{{$quiz->id}}"><input type="submit" class="btn btn-success float-right" value="تعديل" style="margin-left:5px;"></form>
-                                <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal" id='deleteBtn' onclick="assignData('delete/{{$quiz->id}}')">حذف</button></td>
+                            <td>{{ ($quiz->is_mcq == '1')?'اختياري':"مقالي" }}</td>
+                            <td><form action="edit/{{$quiz->is_mcq}}/{{$quiz->quiz_number}}/{{$quiz->stage}}/{{$quiz->is_excellent}}/{{$quiz->is_adaby}}"><input type="submit" class="btn btn-success float-right" value="تعديل" style="margin-left:5px;"></form>
+                                <button type="button" class="btn btn-danger float-right" data-toggle="modal" data-target="#exampleModal" id='deleteBtn' onclick="assignData('delete/{{$quiz->is_mcq}}/{{$quiz->quiz_number}}/{{$quiz->stage}}/{{$quiz->is_excellent}}/{{$quiz->is_adaby}}')">حذف</button></td>
                         </tr>
                     @endforeach
                 @endif
@@ -455,7 +457,8 @@
                     <th>رقم الاختبار</th>
                     <th>المرحله</th>
                     <th>التخصص</th>
-                    <th>المستوي</th>                
+                    <th>المستوي</th>
+                    <th>نوع الاختبار</th>                 
                     <th>الاجراء</th>
                 </tr>
             </tfoot>
@@ -480,7 +483,7 @@
 
             <div class="modal-body">
 
-             هل حقا تريد حذف الطالب
+             هل حقا تريد حذف الامتحانات
 
             </div>
 
