@@ -29,7 +29,7 @@ Route::get('/studenthome', 'StudentsController@index')->name('home')->middleware
 Route::resource('/courses', 'CourseController')->middleware('auth:web');
 Route::get('/addfile', 'CourseController@showAddFile')->middleware('auth:web');
 Route::post('/addfile', 'CourseController@add_file')->name('addfile')->middleware('auth:web');
-Route::get('/downloadfile/{file_name}', 'CourseController@download')->middleware('auth:web');
+Route::get('/downloadfile/{file_name}', 'CourseController@download');
 Route::get('deletefile/{id}', 'CourseController@delete_file')->middleware('auth:web');
 Route::get('see_more', 'CourseController@filesSeeMore');
 // =======

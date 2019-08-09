@@ -181,12 +181,29 @@
         <!-- NAVIGATION LINKS -->
 
         <ul class="navigation-links" data-navigation-handle=".navbar-header">
-                <li><a href="/#home">الرئيسية</a></li>
-                <li><a href="/#services">الحصص الجديدة</a></li>
-                <li><a href="/#about">من نحن</a></li>
-              <li><a href="/#contact">تواصل معنا</a></li>
-              <li><a href="studentlogin">تسجيل دخول </a></li>
-              <li><a href="studentregister">إشترك معنا ؟</a></li>
+          <li><a href="/#home">الرئيسية</a></li>
+          <li><a href="/#services">الحصص الجديدة</a></li>
+           @if(Auth::guard('student')->check())
+          <li><a href="#">الامتحانات</a></li>
+        <li><a href="#">الملف الشخصي</a></li>
+        @endif
+          <li><a href="/#about">من نحن</a></li>
+        <li><a href="/#contact">تواصل معنا</a></li>
+           @if(!Auth::guard('student')->check())
+        <li><a href="studentlogin">تسجيل دخول </a></li>
+        <li><a href="studentregister">إشترك معنا ؟</a></li>
+        @endif
+           @if(Auth::guard('student')->check())
+      <li><a  href="{{ route('logout') }}"
+         onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+          {{ __('تسجيل خروج') }}
+      </a>
+
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+      </form></li>
+      @endif
 
         </ul>
 

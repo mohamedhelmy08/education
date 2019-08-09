@@ -327,7 +327,7 @@
 
                                    <h3>{{$fdata->file_name}}</h3>
                           <div class="btn-container">
-                                <a class="btn secondary-btn" href="downloadfile/{{$fdata->file_name}}">تحميل</a>
+                                <a class="btn secondary-btn" href="downloadfile/{{$fdata->file}}">تحميل</a>
                             </div>
                           </div>
                       @endforeach
@@ -341,7 +341,7 @@
 
                                  <h3>{{$adata->file_name}}</h3>
                         <div class="btn-container">
-                          <a class="btn secondary-btn" href="deletefile/{{$adata->file_name}}"> تحميل</a>
+                          <a class="btn secondary-btn" href="downloadfile/{{$adata->file}}"> تحميل</a>
                           </div>
                         </div>
                     @endforeach
@@ -357,7 +357,7 @@
 
                                  <h3>{{$edata->file_name}}</h3>
                         <div class="btn-container">
-                          <a class="btn secondary-btn" href="deletefile/{{$edata->file_name}}">تحميل</a>
+                          <a class="btn secondary-btn" href="downloadfile/{{$edata->file}}">تحميل</a>
                           </div>
                         </div>
                     @endforeach
@@ -371,7 +371,7 @@
 
                                <h3>{{$tdata->file_name}}</h3>
                       <div class="btn-container">
-                        <a class="btn secondary-btn" href="deletefile/{{$tdata->file_name}}"> تحميل</a>
+                        <a class="btn secondary-btn" href="downloadfile/{{$tdata->file}}"> تحميل</a>
                         </div>
                       </div>
                   @endforeach
@@ -459,7 +459,7 @@
 
                                       <div class="col-12">
                                           <!-- SUBMIT BUTTON -->
-                                          <button type="submit">إرسال</button>
+                                          <button type="submit" disabled>إرسال</button>
                                       </div>
                                   </form>
 

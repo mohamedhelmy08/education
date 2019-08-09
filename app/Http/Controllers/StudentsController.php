@@ -10,7 +10,7 @@ class StudentsController extends Controller
     //
     public function index()
     {
-        return view('student');
+        return view('index-page');
     }
     public function add(Request $request)
     {
