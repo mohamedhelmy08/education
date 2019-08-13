@@ -51,4 +51,43 @@ $('#document').ready(function(){
             $('#noMcqSection').css('display','block');        
         }
     })
+
+        window.MathJax = {
+        jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js", "[Contrib]/arabic/arabic.js"],
+        TeX: {
+          extensions: ["AMSmath.js", "AMSsymbols.js", "autoload-all.js"]
+        },
+        'HTML-CSS': {
+              undefinedFamily: 'Amiri'
+          },
+        tex2jax: {
+          inlineMath: [
+            ['$', '$'],
+            ["\\(", "\\)"]
+          ],
+          processEscapes: true
+        },
+        AuthorInit: function() {
+          MathJax.Hub.Register.StartupHook("Begin", function() {
+            MathJax.Ajax.config.path["Contrib"] = "https://cdn.mathjax.org/mathjax/contrib";
+              // your code to run once MathJax is ready, e.g., custom extensions etc.        
+            MathJax.Hub.Queue( function(){
+              // something to queue after the initial typesetting is done
+            }
+            );
+          });
+        }
+      };
+      
+      (function(d, script) {
+        script = d.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.onload = function() {
+          // remote script has loaded
+        };
+        script.src = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js';
+        d.getElementsByTagName('head')[0].appendChild(script);
+      }(document));
 })

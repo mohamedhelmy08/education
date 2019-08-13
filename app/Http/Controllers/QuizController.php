@@ -30,8 +30,15 @@ class QuizController extends Controller
                         'q5mcq.required' => 'من فضلك ادخل حقل السؤال',
                     ]);
                     $questionresult = $this->hydrat($request);
+                    $is_adaby = 2;
+                    if($request->stage == 2)
+                        $is_adaby = $request->is_adaby;
+    
+                    $max = Quiz::where('is_mcq',1)
+                    ->where('stage',$request->stage)
+                    ->where('is_excellent',$request->is_exellent)
+                    ->where('is_adaby',$is_adaby)->max('quiz_number');
 
-                $max = Quiz::where('is_mcq', 1)->max('quiz_number');
                 if($max == null)
                 $max = 1;
                 else
@@ -45,13 +52,9 @@ class QuizController extends Controller
                     $quiz->quiz_number = $max;
                     $quiz->is_excellent = $request->is_exellent;
                     $quiz->stage = ($request->stage != "اختر المرحله")?$request->stage : 0;
-                    if($request->stage == 2)
-                    $quiz->is_adaby = $request->is_adaby;
-                    else
-                    $quiz->is_adaby = 2;
+                    $quiz->is_adaby =$is_adaby;
                     
-                    $quiz->save();
-                    
+                    $quiz->save();                    
                     foreach($question['answer'] as $requestAnswer){                     
                         $answer = new Answer();
                         $answer->quiz_id = $quiz->id;
@@ -83,7 +86,14 @@ class QuizController extends Controller
                     $request->q4,
                     $request->q5,
                 );
-                $max = Quiz::where('is_mcq', 0)->max('quiz_number');
+                $is_adaby = 2;
+                if($request->stage == 2)
+                    $is_adaby = $request->is_adaby;
+
+                $max = Quiz::where('is_mcq',0)
+                ->where('stage',$request->stage)
+                ->where('is_excellent',$request->is_exellent)
+                ->where('is_adaby',$is_adaby)->max('quiz_number');
                 if($max == null)
                     $max = 1;
                 else
@@ -95,11 +105,7 @@ class QuizController extends Controller
                     $quiz->quiz_number = $max;
                     $quiz->is_excellent = $request->is_exellent;
                     $quiz->stage = ($request->stage != "اختر المرحله")?$request->stage : 0;
-                    if($request->stage == 2)
-                    $quiz->is_adaby = $request->is_adaby;
-                    else
-                    $quiz->is_adaby = 2;
-                    
+                    $quiz->is_adaby = $is_adaby;
                     $quiz->save();
                 }
                 return redirect('exam/show');
