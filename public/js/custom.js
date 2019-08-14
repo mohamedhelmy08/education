@@ -12,6 +12,7 @@ $('#mydatattable').DataTable({
 function assignData(url){
     $('#deleteConfirm').attr("action" , url);
 }
+
 $('#document').ready(function(){
 
     if($( "#selectStage option:selected") .val() == 2){
@@ -28,9 +29,16 @@ $('#document').ready(function(){
           });
     });
 
-    $('#changeState').change(function(){
-        $('#changeStateForm').submit();
+    $("input[name='is_mcq']").change(function(){
+        $('#requireInfo').css('display','block');
+        if($("input[name='is_mcq']:checked").val() == 1){
+           
+            $('#noMcqSection').css('display','none');
+            $('#mcqSection').css('display','block');
+        }else{
+            
+            $('#mcqSection').css('display','none');
+            $('#noMcqSection').css('display','block');        
+        }
     })
-
-
 })

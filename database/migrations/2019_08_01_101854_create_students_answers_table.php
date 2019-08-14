@@ -17,8 +17,11 @@ class CreateStudentsAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('student_id');
             $table->integer('quiz_id');
-            $table->string('answer');
-            $table->string('img');
+            $table->string('answer')->nullable();
+            $table->string('img')->nullable();
+            $table->integer('is_examed')->default('0');
+            $table->integer('is_mcq')->default('0');
+            $table->string('grades')->nullable();
             $table->timestamps();
         });
     }
