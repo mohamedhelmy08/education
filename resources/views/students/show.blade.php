@@ -430,7 +430,7 @@
 
                 <th>المستوي</th>
 
-                {{-- <th>تغير المستوي</th> --}}
+                <th>تغير الحاله</th>
 
                 <th>الاجراء</th>
 
@@ -444,7 +444,7 @@
 
                 @foreach ($students as $student)
 
-                    <tr>
+                    <tr style="background-color:{{($student->is_approved == 0)?'#fabbb6':''}}">
 
                         <td>{{ $student->name }}</td>
 
@@ -464,23 +464,15 @@
 
                         <td>{{ ($student->is_excellent == '1')?'ممتاز':"ضعيف" }}</td>
 
-                        {{-- <td><form action="edit/state/{{$student->id}}" method="post" id="changeStateForm">
-
-                                @csrf
-
-                                <select class="form-control" id="changeState" name="is_excellent">
-
-                                        <option>اختر المستوي</option>
-
-                                        <option value="1" >ممتاز</option>
-
-                                        <option value="0" >ضعيف</option>
-
-                                    </select>
-
-                            </form>
-
-                        </td> --}}
+                        <td><form action="edit/state/{{$student->id}}" method="post" id="changeStateForm">
+                            @csrf
+                            <select class="form-control" id="changeState" name="is_approved" onchange="submit()">
+                                    <option>اختر حاله الطالب </option>
+                                    <option value="1" >مقبول</option>
+                                    <option value="0" >مرفوض</option>
+                                </select> 
+                        </form>
+                    </td>
 
                         <td style="text-align:center;"><a class="btn btn-success" href="edit/{{$student->id}}" style="margin-left:5px;margin-bottom: 5px;">
 
@@ -514,7 +506,7 @@
 
                 <th>المستوي</th>
 
-                {{-- <th>تغير المستوي</th> --}}
+                <th>تغير الحاله</th>
 
                 <th>الاجراء</th>
 
