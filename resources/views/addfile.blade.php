@@ -1,4 +1,4 @@
-@extends('adminhome')
+@extends('master-admin')
 @section('content')
      <section class="course dark-bg" style="padding-top:60px;">
             <div class="color-overlay mapOverlay">

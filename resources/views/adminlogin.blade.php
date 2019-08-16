@@ -254,13 +254,7 @@ oninput="this.setCustomValidity('')">
 
                  <ul class="social-navigation">
 
-                     <li><a href="https://facebook.com/ieasoft" class="icon"><i class="fa fa-facebook"></i></a></li>
-
-                     <li><a href="https://twitter.com/ieasoft" class="icon"><i class="fa fa-twitter"></i></a></li>
-
-                     <li><a href="https://www.linkedin.com/company/ieasoft" class="icon"><i class="fa fa-linkedin"></i></a></li>
-
-
+                     <li><a href="https://facebook.com/helmy" class="icon"><i class="fa fa-facebook"></i></a></li>
 
                  </ul>
 

@@ -1,5 +1,4 @@
-@extends('adminhome')
-
+@extends('master-student')
 @section('content')
 
 <section class="contact dark-bg">
@@ -11,6 +10,9 @@
                   <div class="col-xs20 col-sm10">
 
                       <div class="wrapper">
+                        @if($errors->any())
+                        <h4 style="color:red;">{{$errors->first()}}</h4>
+                        @endif
                         <form action="{{url('/student/submitnotexam')}}" method="post" enctype="multipart/form-data">
                               {{csrf_field()}}
                               <div class="col-12">
@@ -45,7 +47,7 @@
                                   </div>
 
                               </div>
-                              @if(App\StudentAnswer::select('is_examed')->where('quiz_id','=',$questions[0]->quiz_number)->where('student_id','=',1)->get()->first()[0] === 0 || App\StudentAnswer::select('is_examed')->where('quiz_id','=',$questions[0]->quiz_number)->where('student_id','=',1)->get()->first()=== null)
+                              @if(App\StudentAnswer::select('is_examed')->where('quiz_id','=',$questions[0]->quiz_number)->where('student_id','=',Auth::guard()->user()->id)->get()->first()[0] === 0 || App\StudentAnswer::select('is_examed')->where('quiz_id','=',$questions[0]->quiz_number)->where('student_id','=',Auth::guard()->user()->id)->get()->first()=== null)
                               <input type="hidden"  value="{{$questions[0]->quiz_number}}" name="q_num">
                               <div class="col-12">
                                <!-- Upload file -->

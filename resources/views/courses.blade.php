@@ -1,4 +1,4 @@
-@extends('adminhome')
+@extends('master-admin')
 @section('content')
 <div class="container">
   <section class="services" id="services" style="padding-top: 30px;">

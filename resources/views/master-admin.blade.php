@@ -284,7 +284,6 @@
 
 
 
-
 <body>
 
 
@@ -345,11 +344,11 @@
 
 
 
-            <a class="navigation-logo" href="studenthome">
+            <a class="navigation-logo" href="adminhome">
 
 
 
-                <img src="{{asset('/design/images/next-logo.png')}}" alt="next-logo">
+                <img src="{{asset('design/images/next-logo.png')}}" alt="next-logo">
 
 
 
@@ -369,11 +368,16 @@
 
         <ul class="navigation-links" data-navigation-handle=".navbar-header">
 
-                <li><a href="studenthome">الرئيسية</a></li>
+                <li><a href="{{url('/adminhome#home')}}">الرئيسية</a></li>
+                <li><a href="{{url('/student/show')}}">الطلاب</a></li>
 
-                <li><a href="{{url('/student/exams')}}">الامتحانات</a></li>
+                <li><a href="{{url('/exam/show')}}">الامتحانات</a></li>
 
-              <li><a href="#">الملف الشخصي</a></li>
+              <li><a href="{{url('/courses')}}">الحصص الجديدة</a></li>
+
+              <li><a href="{{url('/adminprofile')}}">الملف الشخصي</a></li>
+              <li><a href="{{url('/adminhome#about')}}">من نحن</a></li>
+             <li><a href="{{url('/adminhome#contact')}}">تواصل معنا</a></li>
 
               <li><a  href="{{ route('logout') }}"
 
@@ -407,18 +411,15 @@
 
 </nav>
 
-<!-- <div class="container">
-
-اهلا بكم فى لوحة تحكم الطالب
-
-</div> -->
+<!-- <div class="container"> -->
 
 @yield('content')
 
+
+
+<!-- </div> -->
+
 <footer class="dark-bg">
-
-    <!-- SOCIAL NAVIGATION -->
-
 
 
     <div class="col-xs-12 col-sm-4">
@@ -433,21 +434,7 @@
 
 
 
-            <li><a href="https://facebook.com/ieasoft" class="icon"><i class="fa fa-facebook"></i></a></li>
-
-
-
-            <li><a href="https://twitter.com/ieasoft" class="icon"><i class="fa fa-twitter"></i></a></li>
-
-
-
-            <li><a href="https://www.linkedin.com/company/ieasoft" class="icon"><i class="fa fa-linkedin"></i></a></li>
-
-
-
-
-
-
+            <li><a href="https://facebook.com/helmy" class="icon"><i class="fa fa-facebook"></i></a></li>
 
         </ul>
 
@@ -463,7 +450,7 @@
 
 
 
-        جميع الحقوق محفوظة © | <span dir="ltr">Next </span> &nbsp; &nbsp; &nbsp;2019
+        جميع الحقوق محفوظة © | <span dir="ltr">Next</span>&nbsp; &nbsp; &nbsp; 2019
 
 
 
@@ -472,8 +459,6 @@
 
 
 </footer>
-
-
 
 
 
@@ -636,7 +621,6 @@
    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
 
    <script src="{{asset('js/custom.js')}}" ></script>
-
 
 </body>
 

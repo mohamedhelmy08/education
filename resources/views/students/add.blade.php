@@ -1,7 +1,4 @@
-@extends('adminhome')
-
-
-
+@extends('master-admin')
 @section('content')
 
 <!-- <form action="save" method="post" enctype="multipart/form-data">
@@ -316,7 +313,7 @@ oninput="this.setCustomValidity('')" >
 
                                  <!-- STAGE -->
 
-                                 <label class="select-box"> 
+                                 <label class="select-box">
 
                                     <select id="selectStage" required=""  name="stage"  oninvalid="this.setCustomValidity('من فضلك اختر مرحلة')"
 
@@ -415,4 +412,3 @@ oninput="this.setCustomValidity('')">
        </section>
 
   @endsection
-

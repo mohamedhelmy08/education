@@ -1,5 +1,4 @@
-@extends('studenthome')
-
+@extends('master-student')
 @section('content')
 
 <section class="contact dark-bg">

@@ -25,8 +25,8 @@
 
 
 Route::get('/', function () {
-     //dd(Auth::guard());
-    return view('index-page');
+     // dd(Auth::guard());
+    return view('home-student');
 
 });
 
@@ -46,6 +46,9 @@ Route::get('studentlogin','Student\LoginController@showLoginForm')->name('studen
 
 Route::post('studentlogin','Student\LoginController@login');
 
+Route::middleware('auth:web')->get('adminprofile','ProfileController@view_admin');
+Route::middleware('auth:web')->post('editadminprofile/{id}','ProfileController@profile_admin_edit');
+Route::middleware('auth:web')->post('update_admin_password','ProfileController@change_admin_password');
 Route::get('/adminhome', 'HomeController@index')->name('home')->middleware('auth:web');
 Route::middleware('auth:student')->get('/studenthome', 'StudentsController@index')->name('home');
 Route::resource('/courses', 'CourseController')->middleware('auth:web');
@@ -92,13 +95,15 @@ Route::middleware('auth:student')->get('student/takeexam/{q_num}/{mcq}','Student
 Route::middleware('auth:student')->post('student/submitnotexam','StudentsController@submitNoteExam');
 Route::middleware('auth:student')->post('student/submitmcqexam','StudentsController@submitMcqExam');
 Route::middleware('auth:student')->get('student/examresult/{q_num}/{is_examed}','StudentsController@getExamResult');
-
+Route::middleware('auth:student')->get('student/profile','ProfileController@index');
+Route::middleware('auth:student')->post('student/editprofile/{id}','ProfileController@student_profile_edit');
+Route::middleware('auth:student')->post('student/update_student_password','ProfileController@change_student_password');
 //end student route
 //Start Quiz route
 Route::get('exam/add','QuizController@add');
 Route::post('exam/save','QuizController@add');
 Route::get('exam/show','QuizController@showAll');
 Route::get('exam/delete/{is_mcq}/{quiz_number}/{stage}/{is_excellent}/{is_adaby}','QuizController@delete');
-Route::get('exam/edit/{is_mcq}/{quiz_number}/{stage}/{is_excellent}/{is_adaby}','QuizController@edit'); 
-Route::post('exam/edit','QuizController@edit'); 
+Route::get('exam/edit/{is_mcq}/{quiz_number}/{stage}/{is_excellent}/{is_adaby}','QuizController@edit');
+Route::post('exam/edit','QuizController@edit');
 //end quiz route

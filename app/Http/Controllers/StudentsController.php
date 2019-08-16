@@ -15,7 +15,7 @@ class StudentsController extends Controller
     //
     public function index()
     {   //dd(Auth::guard());
-        return view('student');
+        return view('home-student');
     }
     public function add(Request $request)
     {
@@ -173,12 +173,16 @@ class StudentsController extends Controller
     public function submitMcqExam(Request $request)
     {
       //$is_examed = 0;
-      $is_examed = DB::table('students_answers')->select('is_examed')->where('quiz_id',$request->q_num)->where('is_mcq',1)->get()->first();
+      $is_examed = DB::table('students_answers')->select('is_examed')->where('quiz_id',$request->q_num)->where('is_mcq',1)->get()->last();
       // dd($is_examed);
-      if ($is_examed === null) {
+      if ($is_examed === null || empty($is_examed)) {
           $is_examed =1;
       }else{
       $is_examed =  $is_examed->is_examed +1;
+      }
+    //  dd($is_examed);
+      if ($is_examed == 3) {
+        return redirect('student/exams');
       }
       //dd($is_examed);
       $answers = array();
@@ -194,17 +198,25 @@ class StudentsController extends Controller
          $ans_arr3 = explode (",", $request->q3mcqTrue);
          $ans_arr4 = explode (",", $request->q4mcqTrue);
          $ans_arr5 = explode (",", $request->q5mcqTrue);
-          $answers[0][] = $ans_arr1[0];
-          $answers[0][] = $ans_arr2[0];
-          $answers[0][] = $ans_arr3[0];
-          $answers[0][] = $ans_arr4[0];
-          $answers[0][] = $ans_arr5[0];
-          $answers[1][] = $ans_arr1[1];
-          $answers[1][] = $ans_arr2[1];
-          $answers[1][] = $ans_arr3[1];
-          $answers[1][] = $ans_arr4[1];
-          $answers[1][] = $ans_arr5[1];
+         $answers[0] = array($ans_arr1[0], $ans_arr2[0],$ans_arr3[0],$ans_arr4[0],$ans_arr5[0]);
+         $answers[1] = array($ans_arr1[1], $ans_arr2[1],$ans_arr3[1],$ans_arr4[1],$ans_arr5[1]);
+
+         //dd($answers);
+         if (count($answers[0])<5) {
+           return redirect('student/takeexam/'.$request->q_num.'/1')->withErrors(['quest_num' => 'يجب حل جميع الاسئلة اولا']);
+         }
+          // $answers[0][] = $ans_merg[0];
+          // $answers[0][] = $ans_merg[2];
+          // $answers[0][] = $ans_merg[4];
+          // $answers[0][] = $ans_merg[6];
+          // $answers[0][] = $ans_merg[8];
+          // $answers[1][] = $ans_merg[1];
+          // $answers[1][] = $ans_merg[3];
+          // $answers[1][] = $ans_merg[5];
+          // $answers[1][] = $ans_merg[7];
+          // $answers[1][] = $ans_merg[9];
          $examanswer = implode(', ', $answers[0]);
+
          $stanswers->answer = $examanswer;
          $stanswers->quiz_id = $request->q_num;
          $stanswers->student_id = $st_id;

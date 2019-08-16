@@ -47,8 +47,7 @@ class HomeController extends Controller
     public function index()
 
     {
-      //         dd(Auth::guard());
-        return view('admin');
+        return view('home-admin');
 
 
 
@@ -67,4 +66,3 @@ class HomeController extends Controller
 
 
 }
-

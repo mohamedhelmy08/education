@@ -208,7 +208,7 @@
 
 
 
-    <link rel="stylesheet" href="{{asset('design/css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('design/css/styles2.css')}}">
 
 
 
@@ -367,17 +367,26 @@
 
 
         <ul class="navigation-links" data-navigation-handle=".navbar-header">
+           @if(Auth::guard('student')->check())
+           <li><a href="{{url('/#home')}}">الرئيسية</a></li>
+           <li><a href="{{url('/#services')}}">الحصص الجديدة</a></li>
+           <li><a href="{{url('/student/exams')}}">الامتحانات</a></li>
+           <li><a href="{{url('/student/profile')}}">الملف الشخصي</a></li>
+           <li><a href="{{url('/#about')}}">من نحن</a></li>
+           <li><a href="{{url('/#contact')}}">تواصل معنا</a></li>
+            @endif
+            @if(Auth::guard('web')->check())
+            <li><a href="{{url('/adminhome#home')}}">الرئيسية</a></li>
+            <li><a href="{{url('/student/show')}}">الطلاب</a></li>
 
-                <li><a href="{{url('/adminhome')}}">الرئيسية</a></li>
+              <li><a href="{{url('/exam/show')}}">الامتحانات</a></li>
 
-                <li><a href="{{url('/student/show')}}">الطلاب</a></li>
+            <li><a href="{{url('/courses')}}">الحصص الجديدة</a></li>
 
-                <li><a href="{{url('/exam/show')}}">الامتحانات</a></li>
-
-              <li><a href="{{url('/courses')}}">الحصص الجديدة</a></li>
-
-              <li><a href="#">الملف الشخصي</a></li>
-
+            <li><a href="{{url('/adminprofile')}}">الملف الشخصي</a></li>
+            <li><a href="{{url('/adminhome#about')}}">من نحن</a></li>
+           <li><a href="{{url('/adminhome#contact')}}">تواصل معنا</a></li>
+                 @endif
               <li><a  href="{{ route('logout') }}"
 
                  onclick="event.preventDefault();
@@ -410,235 +419,212 @@
 
 </nav>
 
-<!-- <div class="container"> -->
-
 @yield('content')
-
-
-
-<!-- </div> -->
-
 <footer class="dark-bg">
+          <!-- SOCIAL NAVIGATION -->
 
-    <!-- SOCIAL NAVIGATION -->
 
 
+          <div class="col-xs-12 col-sm-4">
 
-    <div class="col-xs-12 col-sm-4">
 
 
+              <h3>تواصل معنا</h3>
 
-        <h3>تواصل معنا</h3>
 
 
+              <ul class="social-navigation">
 
-        <ul class="social-navigation">
 
 
+                  <li><a href="https://facebook.com/helmy" class="icon"><i class="fa fa-facebook"></i></a></li>
 
-            <li><a href="https://facebook.com/helmy" class="icon"><i class="fa fa-facebook"></i></a></li>
+              </ul>
 
 
 
-            <li><a href="https://twitter.com/helmy" class="icon"><i class="fa fa-twitter"></i></a></li>
+          </div>
 
+          <!-- COPYRIGHT -->
 
 
-            <li><a href="https://www.linkedin.com/company/helmy" class="icon"><i class="fa fa-linkedin"></i></a></li>
 
+          <p style="padding-top: 140px">
 
 
 
+              جميع الحقوق محفوظة © | <span dir="ltr">Next</span>&nbsp; &nbsp; &nbsp; 2019
 
 
 
-        </ul>
+          </p>
 
 
 
-    </div>
+      </footer>
 
-    <!-- COPYRIGHT -->
 
 
 
-    <p style="padding-top: 140px">
 
+      <!-- =========================
 
 
-        جميع الحقوق محفوظة © | <span dir="ltr">Next</span>&nbsp; &nbsp; &nbsp; 2019
 
+           SCRIPTS
 
 
-    </p>
 
+      ========================= -->
 
 
-</footer>
 
 
 
+      <!-- =========== script type ==================== -->
 
 
-<!-- =========================
 
+      <script src='../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
-     SCRIPTS
 
+      <script src='../../s3-us-west-2.amazonaws.com/s.cdpn.io/15309/typed.min.js'></script>
 
 
-========================= -->
 
+      <script src="{{asset('design/js/index.js')}}"></script>
 
 
 
+      <!-- =========== script type ==================== -->
 
-<!-- =========== script type ==================== -->
 
 
+      <!-- Formstone Navigation -->
 
-<script src='../../cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
+      <script src="{{asset('design/js/core.js')}}"></script>
 
-<script src='../../s3-us-west-2.amazonaws.com/s.cdpn.io/15309/typed.min.js'></script>
 
 
+      <script src="{{asset('design/js/mediaquery.js')}}"></script>
 
-<script src="{{asset('design/js/index.js')}}"></script>
 
 
+      <script src="{{asset('design/js/swap.js')}}"></script>
 
-<!-- =========== script type ==================== -->
 
 
+      <script src="{{asset('design/js/touch.js')}}"></script>
 
-<!-- Formstone Navigation -->
 
 
+      <script src="{{asset('design/js/navigation.js')}}"></script>
 
-<script src="{{asset('design/js/core.js')}}"></script>
 
 
 
-<script src="{{asset('design/js/mediaquery.js')}}"></script>
 
+      <!-- Smoothscroll -->
 
 
-<script src="{{asset('design/js/swap.js')}}"></script>
 
+      <script src="{{asset('design/js/smoothscroll.js')}}"></script>
 
 
-<script src="{{asset('design/js/touch.js')}}"></script>
 
 
 
-<script src="{{asset('design/js/navigation.js')}}"></script>
+      <!-- Jquery Nav -->
 
 
 
+      <script src="{{asset('design/js/jquery.nav.js')}}"></script>
 
 
-<!-- Smoothscroll -->
 
 
 
-<script src="{{asset('design/js/smoothscroll.js')}}"></script>
+      <!-- ImagesLoaded -->
 
 
 
+      <script src="{{asset('design/js/jquery.imagesloaded.js')}}"></script>
 
 
-<!-- Jquery Nav -->
 
 
 
-<script src="{{asset('design/js/jquery.nav.js')}}"></script>
+      <!-- Wookmark -->
 
 
 
+      <script src="{{asset('design/js/jquery.wookmark.min.js')}}"></script>
 
 
-<!-- ImagesLoaded -->
 
 
 
-<script src="{{asset('design/js/jquery.imagesloaded.js')}}"></script>
+      <!-- bootstrap -->
 
 
 
+      <script src="{{asset('design/js/bootstrap.min.js')}}"></script>
 
 
-<!-- Wookmark -->
 
+      <script src="{{asset('design/js/bootstrap-arabic.min.js')}}"></script>
 
 
-<script src="{{asset('design/js/jquery.wookmark.min.js')}}"></script>
 
 
 
+      <!-- Retina -->
 
 
-<!-- bootstrap -->
 
+      <script src="{{asset('design/js/retina.min.js')}}"></script>
 
 
-<script src="{{asset('design/js/bootstrap.min.js')}}"></script>
 
 
 
-<script src="{{asset('design/js/bootstrap-arabic.min.js')}}"></script>
+      <!-- Custom Script -->
 
 
 
+      <script src="{{asset('design/js/custom.js')}}"></script>
 
 
-<!-- Retina -->
 
+      <script src="{{asset('design/js/index-product.js')}}"></script>
 
+      <!--Data table Scripts -->
 
-<script src="{{asset('design/js/retina.min.js')}}"></script>
+         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 
+          <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script> -->
 
+          <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script> -->
 
+          <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
 
+          <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
 
-<!-- Custom Script -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<script src="{{asset('design/js/custom.js')}}"></script>
+          <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
 
+         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
 
+         <script src="{{asset('js/custom.js')}}" ></script>
 
-<script src="{{asset('design/js/index-product.js')}}"></script>
+      </body>
 
-<!--Data table Scripts -->
-
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script> -->
-
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script> -->
-
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
-
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
-
-   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
-
-   <script src="{{asset('js/custom.js')}}" ></script>
-
-</body>
-
-</html>
-
+      </html>

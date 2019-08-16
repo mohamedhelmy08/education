@@ -1,5 +1,4 @@
-@extends('studenthome')
-
+@extends('master-student')
 @section('content')
 
 <section class="contact dark-bg">
@@ -11,7 +10,9 @@
                   <div class="col-xs20 col-sm10">
 
                       <div class="wrapper">
-
+                        @if($errors->any())
+                        <h4 style="color:red;">{{$errors->first()}}</h4>
+                        @endif
                          <form action="{{url('/student/submitmcqexam')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                        <!--<div>
@@ -286,7 +287,7 @@
                                       <hr>
                                       </div>
                                       <input  type="hidden" name="q_num" value="{{$quiz[0]->quiz_number}}" >
-                                      @if(App\StudentAnswer::select('is_examed')->where('quiz_id','=',$quiz[0]->quiz_number)->where('is_mcq','=',1)->where('student_id','=',1)->get()->first()['is_examed']== null || App\StudentAnswer::select('is_examed')->where('quiz_id','=',$quiz[0]->quiz_number)->where('is_mcq','=',1)->where('student_id','=',1)->get()->last()['is_examed']== '1')
+                                      @if(App\StudentAnswer::select('is_examed')->where('quiz_id','=',$quiz[0]->quiz_number)->where('is_mcq','=',1)->where('student_id','=',Auth::guard()->user()->id)->get()->first()['is_examed']== null || App\StudentAnswer::select('is_examed')->where('quiz_id','=',$quiz[0]->quiz_number)->where('is_mcq','=',1)->where('student_id','=',Auth::guard()->user()->id)->get()->last()['is_examed']== '1')
                                       <div class="form-group row mb-0">
 
                                           <div class="col-md-12 offset-md-4">

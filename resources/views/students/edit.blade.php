@@ -1,7 +1,4 @@
-@extends('adminhome')
-
-
-
+@extends('master-admin')
 @section('content')
 
   <section class="contact dark-bg">
@@ -233,4 +230,3 @@
          </section>
 
     @endsection
-
